@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Result {
-    private ArrayList<Integer> spakowane_id;
-    private ArrayList<Integer> spakowane_wartosc;
-    private ArrayList<Integer> spakowane_masa;
+    final private ArrayList<Integer> spakowane_id;
+    final private ArrayList<Integer> spakowane_wartosc;
+    final private ArrayList<Integer> spakowane_masa;
     private static Integer liczba_przedmiotow = 0;
     private static Integer sumaryczna_masa = 0;
     private static Integer sumaryczna_wartosc = 0;
+    Integer getItemsNumber() {return liczba_przedmiotow;}
+    Integer getTotalMass() {return sumaryczna_masa;}
+    Integer getTotalValue() {return sumaryczna_wartosc;}
+    ArrayList<Integer> getSpakowane_wartosc() {return spakowane_wartosc;}
+    ArrayList<Integer> getSpakowane_masa() {return spakowane_masa;}
 
     public Result() {
         spakowane_id = new ArrayList<>();

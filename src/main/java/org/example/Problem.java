@@ -55,4 +55,20 @@ public class Problem {
         }
         return rozwiazanie;
     }
+
+    ArrayList<Integer> getWagi() {
+        ArrayList<Integer> Wagi = new ArrayList<>(n);
+        for(Przedmiot p : przedmioty) {
+            Wagi.add(p.getWaga());
+        }
+        return Wagi;
+    }
+
+    ArrayList<Integer> getWartosci() {
+        ArrayList<Integer> Wartosci = new ArrayList<>(n);
+        for(Przedmiot p : przedmioty) {
+            Wartosci.add(p.getWartosc());
+        }
+        return Wartosci;
+    }
 }
