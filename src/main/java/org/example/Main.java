@@ -8,13 +8,35 @@ package org.example;
 // |Alt + insert -> generate|
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
+    private static int N, Seed = 0, pojemnosc;
+    private static final int LowerBound = 1, UpperBound = 10;
+    private static boolean SeedNeed = false;
+
     public static void main(String[] args) {
-        System.out.printf("Hello and welcome!\n");
+        ScannerFun();
+        Problem prob = new Problem(N, Seed, LowerBound, UpperBound, SeedNeed);
+        System.out.println(prob.solve(pojemnosc));
+        System.out.println(prob);
+    }
 
+    private static void ScannerFun() {
+        Scanner scanner = new Scanner(System.in);
+        String input;
 
-        Problem prob = new Problem(10, 1, 1, 10, 100, false);
-        System.out.printf("END\n");
+        System.out.print("Give seed (\"not int\" for random seed): "); input = scanner.nextLine();
+        if( ! input.equalsIgnoreCase("rand"))
+            try {Seed = Integer.parseInt(input); SeedNeed = true;}
+            catch (NumberFormatException e) {System.out.print("Invalid input, using random seed.");}
+
+        System.out.print("Give number of item types: ");
+        while(true) try {N = Integer.parseInt(scanner.nextLine()); break;}
+                    catch (NumberFormatException e) {System.out.print("Invalid input, try again: ");}
+
+        System.out.print("Give kanpsack capacity: ");
+            while(true) try {pojemnosc = Integer.parseInt(scanner.nextLine()); break;}
+            catch (NumberFormatException e) {System.out.println("Invalid input, try again: ");}
     }
 }
